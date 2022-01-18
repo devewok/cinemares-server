@@ -1,0 +1,17 @@
+{
+  "name": "cinemares-server",
+  "version": "0.0.1",
+  "description": "Cinema Ares",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bsjaramillo",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "node-media-server": "^2.3.8",
+    "socket.io": "^4.4.1"
+  }
+}
