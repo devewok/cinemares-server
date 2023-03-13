@@ -1,11 +1,11 @@
 const fs = require('fs');
 const express = require("express");
-const {createServer} = require("http");
-const {Server} = require("socket.io");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
 const cors = require("cors");
 const app = express();
 const httpServer = createServer(app);
-const io = new Server(httpServer, {cors: {origin: "http://localhost:3001", methods: ["GET", "POST"]}});
+const io = new Server(httpServer, { cors: { origin: "https://cinemares-client.vercel.app", methods: ["GET", "POST"] } });
 
 io.on("connection", (socket) => {
 	socket.on('moviechat', message => {
@@ -37,9 +37,9 @@ app.get("/video", (req, res) => {
 		"Content-Type": "video/mp4",
 	};
 	res.writeHead(206, header)
-	const readStream = fs.createReadStream(videoPath, {start, end});
+	const readStream = fs.createReadStream(videoPath, { start, end });
 	readStream.pipe(res)
 })
 
-const PORT = process.env.PORT || 3000
-httpServer.listen(PORT, () => {console.log(`Server is Running at PORT ${PORT}`)});
+const PORT = process.env.PORT || 5000
+httpServer.listen(PORT, () => { console.log(`Server is Running at PORT ${PORT}`) });
