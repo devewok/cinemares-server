@@ -5,7 +5,7 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 const app = express();
 const httpServer = createServer(app);
-const io = new Server(httpServer, { cors: { origin: "https://cinemares-client.vercel.app", methods: ["GET", "POST"] } });
+const io = new Server(httpServer);
 
 io.on("connection", (socket) => {
 	socket.on('moviechat', message => {
